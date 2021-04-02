@@ -98,6 +98,7 @@ public class Robot extends Actor
             Greenfoot.playSound("eat.wav");
             removeTouching(Pizza.class);
             pizzaEaten = pizzaEaten +1;
+            showStatus();
         }
     }
     
@@ -116,6 +117,7 @@ public class Robot extends Actor
     public void removeLife()
     {
         lives = lives -1;
+        showStatus();
         testEndGame();
     }
     
@@ -131,5 +133,11 @@ public class Robot extends Actor
     public void increaseScore()
     {
             score = score +1;
+    }
+    
+    public void showStatus()
+    {
+        getWorld().showText("Lives: "+lives,70,540);
+        getWorld().showText("Pizzas: "+pizzaEaten,70,560);
     }
 }
